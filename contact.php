@@ -1,4 +1,18 @@
 <?php
+session_start();
+$message = "TheFlagIsInHiddenFilesServer____keepGoing...";
+if (!isset($_COOKIE['name']) || $_COOKIE['name'] != $message)
+{
+    setcookie("name", $message, time() + 36000000, "/");
+}
+
+function pri($tab)
+{
+    echo "<pre/>";
+    print_r($tab);
+    echo "<pre/>";
+}
+// pri($_COOKIE);
 
 
 $name = "";
