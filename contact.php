@@ -1,6 +1,6 @@
 <?php
 session_start();
-$message = "TheFlagIsInHiddenFilesServer____keepGoing...";
+$message = "The_Flag_Is_In_Hidden_Files_Server____keepGoing...";
 if (!isset($_COOKIE['indice']) || $_COOKIE['indice'] != $message)
 {
     setcookie("indice", $message, time() + 36000000, "/");
