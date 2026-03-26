@@ -27,7 +27,8 @@ if (isset($_POST['name']))
 
 <head>
     <meta charset="UTF-8">
-    <title>Page Contact</title>
+    <title>FindMe Contact</title>
+    <link rel="stylesheet" href="style.css" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -95,6 +96,7 @@ if (isset($_POST['name']))
 </head>
 
 <body>
+    <h1>FindMe</h1>
 
     <div class="container">
         <?php if ($name)
