@@ -6,15 +6,6 @@ if (!isset($_COOKIE['indice']) || $_COOKIE['indice'] != $message)
     setcookie("indice", $message, time() + 36000000, "/");
 }
 
-function pri($tab)
-{
-    echo "<pre/>";
-    print_r($tab);
-    echo "<pre/>";
-}
-// pri($_COOKIE);
-
-
 $name = "";
 if (isset($_POST['name']))
 {
