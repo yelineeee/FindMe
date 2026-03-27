@@ -1,117 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>FindMe Contact</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        background: #a1caff;
+        font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+        margin: 0;
+      }
 
-        .success-message {
-            display: none; 
-            margin: 20px auto;
-            padding: 15px;
-            width: 50%;
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            border-radius: 5px;
-            font-weight: bold;
-            text-align: center;
-        }
+      .success-message {
+        display: none;
+        margin: 20px auto;
+        padding: 15px;
+        width: 50%;
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+      }
 
-        .container {
-            width: 50%;
-            margin: 50px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+      .container {
+        background: #fff;
+        width: 60%;
+        margin: 50px auto;
+        padding: 20px;
+      }
 
-        h1 {
-            text-align: center;
-        }
+      h1 {
+        text-align: center;
+        font-size: 70px;
+        color: #1411bd;
+        background: white;
+        padding: 20px;
+        top: 0;
+        margin: 0;
+        text-shadow: 3px 3px 8px #ff00cc;
+      }
 
-        label {
-            display: block;
-            margin-top: 15px;
-        }
+      h2 {
+        text-align: center;
+        font-size: 36px;
+        color: #0000ff;
+        border: 2px dashed #ff00cc;
+        margin: 30px auto 10px auto;
+        width: 50%;
+        padding: 10px;
+        border-radius: 10px;
+      }
 
-        input,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
+      label {
+        display: block;
+        margin-top: 15px;
+        color: #0000ff;
+      }
 
-        button {
-            margin-top: 20px;
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+      }
+      input,
+      textarea {
+        width: 77%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        display: block;
+      }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+      button {
+        width: 80%;
+        margin-top: 30px;
+        color: #00f;
+        background: #ff0;
+        padding: 10px 10px;
+        border-radius: 8px;
+        border: 2px solid #ff00cc;
+        text-decoration: none;
+        box-shadow: 2px 2px 8px #ff00cc;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+      }
+
+      button:hover {
+        background: #00f;
+        color: #ff0;
+        border-color: #00c3ff;
+        box-shadow: 0 0 15px #00c3ff;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>FindMe</h1>
 
     <div class="container">
-        <div class="success-message" id="successMessage"></div>
+      <div class="success-message" id="successMessage"></div>
 
-        <h1>Contactez-nous</h1>
+      <h2>Contactez-nous</h2>
 
-        <form id="contactForm">
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" required>
+      <form id="contactForm">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required />
 
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required />
 
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
-            <button type="submit">Envoyer</button>
-        </form>
+        <button type="submit">Envoyer</button>
+      </form>
     </div>
 
     <script>
-        const cookieName = "indice";
-        const cookieValue = "The_Flag_Is_In_Hidden_Files_Server____keepGoing...";
-        if (!document.cookie.split('; ').find(row => row.startsWith(cookieName + '='))) {
-            document.cookie = `${cookieName}=${cookieValue}; max-age=36000000; path=/`;
-        }
+      const cookieName = "indice";
+      const cookieValue = "The_Flag_Is_In_Hidden_Files_Server____keepGoing...";
+      if (
+        !document.cookie
+          .split("; ")
+          .find((row) => row.startsWith(cookieName + "="))
+      ) {
+        document.cookie = `${cookieName}=${cookieValue}; max-age=36000000; path=/`;
+      }
 
-        const form = document.getElementById("contactForm");
-        const successMessage = document.getElementById("successMessage");
+      const form = document.getElementById("contactForm");
+      const successMessage = document.getElementById("successMessage");
 
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-            const name = document.getElementById("name").value;
+        const name = document.getElementById("name").value;
 
-            successMessage.innerHTML = `Votre email a été envoyé avec succès ! Au revoir Monsieur ${name}`;
-            successMessage.style.display = "block";
+        successMessage.innerHTML = `Votre email a été envoyé avec succès ! Au revoir Monsieur ${name}`;
+        successMessage.style.display = "block";
 
-            form.reset();
-        });
+        form.reset();
+      });
     </script>
-</body>
-
+  </body>
 </html>
