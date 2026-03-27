@@ -4,50 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>FindMe</title>
   </head>
   <body>
     <h1>FindMe</h1>
     <div>
       <p>Téléchargez vos fichiers</p>
-      <ul>
-        <li><a href="files/file1.txt" >File 1</a></li>
-        <li><a href="files/file2.jpg" >File 2</a></li>
-        <li>
-          <a
-            href="https://xn--estcequelacnilsestbougeaujourdhui-w6c.eu.org/"
-            target="_blank"
-            >File 3</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.mug-cadeau.com/mug-tasse-idee-cadeau-humoristique-memes-internet/mug-les-jaloux-vous-etes-trop-moche.html"
-            target="_blank"
-            >File 4</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.youtube.com/watch?v=JMYa9LVi0Lg&list=RDJMYa9LVi0Lg&start_radio=1"
-            target="_blank"
-            >File 5</a
-            >
-        </li>
-        <li class="cacher">
-          <a href="https://www.youtube.com/watch?v=KG6ft_YDp5k" target="_blank"
-            >Cache cache</a>
-        </li>
-        <li>
-          <a href="https://chat-jai-pete.fr/" target="_blank">File 6</a>
-        </li><li>
-          <a href="files/file3.png" target="_blank">File 7</a>
-        </li>
-        <li>
-          <a href="https://m.media-amazon.com/images/I/51i3ac0Oe2L._AC_SL1000_.jpg" target="_blank">File 8</a>
-        </li>
+      <ul id="file-list">
       </ul>
     </div>
     <a href="contact.html">Contact</a>
+
+    <script>
+      const fileListEl = document.getElementById("file-list");
+      const API_BASE = "https://ctf-backend-wv6a.onrender.com/api";
+      fetch(`${API_BASE}/files`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.files && data.files.length > 0) {
+            data.files.forEach(file => {
+              const li = document.createElement("li");
+              const a = document.createElement("a");
+              a.textContent = file;
+              a.href = "#"; 
+              a.addEventListener("click", e => {
+                e.preventDefault();
+                const tempLink = document.createElement("a");
+                tempLink.href = `${API_BASE}/download?file=${encodeURIComponent(file)}`;
+                tempLink.download = file;
+                document.body.appendChild(tempLink);
+                tempLink.click();
+                document.body.removeChild(tempLink);
+              });
+              li.appendChild(a);
+              fileListEl.appendChild(li);
+            });
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          fileListEl.textContent = "Erreur lors du chargement des fichiers.";
+        });
+    </script>
   </body>
 </html>
